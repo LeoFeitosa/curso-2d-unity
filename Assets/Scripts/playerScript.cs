@@ -65,6 +65,7 @@ public class playerScript : MonoBehaviour
 
         playerAnimator.SetBool("grounded", Grounded);
         playerAnimator.SetInteger("idAnimation", idAnimation);
+        playerAnimator.SetFloat("speedY", playerRb.velocity.y);
     }
 
     private void flip()
