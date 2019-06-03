@@ -15,6 +15,7 @@ public class playerScript : MonoBehaviour
     public      bool        attacking; //indica de o personagem esta atacando
     public      bool        loockLeft; //indica se o personagem esta virado para a esquerda
     public      int         idAnimation; //indica o id da animacao
+    public      Collider2D  standing, crounching; //colisor em pé, colisor agachado
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,7 @@ public class playerScript : MonoBehaviour
             playerAnimator.SetTrigger("atack");
         }
 
-        if (Input.GetButtonDown("Jump") && Grounded) {
+        if (Input.GetButtonDown("Jump") && Grounded && !attacking) {
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
@@ -72,7 +73,23 @@ public class playerScript : MonoBehaviour
         {
             h = 0;
         }
-        
+
+        if (v < 0 && Grounded)
+        {
+            crounching.enabled = true;
+            standing.enabled = false;
+        } 
+        else if (Grounded)
+        {
+            crounching.enabled = false;
+            standing.enabled = true;            
+        }
+        else if (v != 0 && !Grounded)
+        {
+            crounching.enabled = false;
+            standing.enabled = true;
+        }
+
         playerAnimator.SetBool("grounded", Grounded);
         playerAnimator.SetInteger("idAnimation", idAnimation);
         playerAnimator.SetFloat("speedY", playerRb.velocity.y);
