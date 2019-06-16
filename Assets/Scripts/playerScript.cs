@@ -116,4 +116,10 @@ public class playerScript : MonoBehaviour
                 break;
         }
     }
+
+    //funções para tratar colisão
+    private void OnCollisionEnter2D(Collision2D collision) // ao entrar em colisão
+    {
+        print("colidiu");
+    }
 }
