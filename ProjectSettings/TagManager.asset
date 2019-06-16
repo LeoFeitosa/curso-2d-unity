@@ -44,6 +44,9 @@ TagManager:
   - name: paredes
     uniqueID: 1579021867
     locked: 0
+  - name: objetos decoracao
+    uniqueID: 3369067425
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
