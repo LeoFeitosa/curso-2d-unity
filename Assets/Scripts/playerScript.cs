@@ -9,6 +9,7 @@ public class playerScript : MonoBehaviour
     private     float       h, v;
 
     public      Transform   groundCheck; //objeto responsavel em deectar se o prsonagem esta sobre uma superficie
+    public      LayerMask   whatIsGround; //indica o que é superficie para o teste do grounded
     public      float       speed; //velocidade de movimentacao do personagem
     public      float       jumpForce; //forca aplicada para gerar o pulo do personagem
     public      bool        Grounded; //indica se o personagem esta pisando em alguma superficie
@@ -16,6 +17,10 @@ public class playerScript : MonoBehaviour
     public      bool        loockLeft; //indica se o personagem esta virado para a esquerda
     public      int         idAnimation; //indica o id da animacao
     public      Collider2D  standing, crounching; //colisor em pé, colisor agachado
+
+    public      Transform   hand;
+    private     Vector3     dir = Vector3.right;
+    public      LayerMask   interacao;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +31,11 @@ public class playerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Grounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f);
+        Grounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f, whatIsGround);
+
         playerRb.velocity = new Vector2(h * speed, playerRb.velocity.y);
+
+        interagir();
     }
 
     // Update is called once per frame
@@ -101,6 +109,9 @@ public class playerScript : MonoBehaviour
         float x = transform.localScale.x;
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+
+        dir.x = x;
+        //dir = dir;
     }
 
     public void attack(int atk)
@@ -117,9 +128,14 @@ public class playerScript : MonoBehaviour
         }
     }
 
-    //funções para tratar colisão
-    private void OnCollisionEnter2D(Collision2D collision) // ao entrar em colisão
+    void interagir()
     {
-        print("colidiu");
+        RaycastHit2D hit = Physics2D.Raycast(hand.position, dir, 0.1f, interacao);
+        Debug.DrawRay(hand.position, dir * 0.1f, Color.red);
+
+        if (hit == true)
+        {
+            print(hit.collider.gameObject.name);
+        }
     }
 }
