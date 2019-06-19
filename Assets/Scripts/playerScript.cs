@@ -18,9 +18,11 @@ public class playerScript : MonoBehaviour
     public      int         idAnimation; //indica o id da animacao
     public      Collider2D  standing, crounching; //colisor em pé, colisor agachado
 
+    //intereção com itens e objetos
     public      Transform   hand;
     private     Vector3     dir = Vector3.right;
     public      LayerMask   interacao;
+    public      GameObject  objetoInteracao;
 
     // Start is called before the first frame update
     void Start()
@@ -69,11 +71,18 @@ public class playerScript : MonoBehaviour
             idAnimation = 0;
         }
 
-        if (Input.GetButtonDown("Fire1") && v >= 0 && !attacking) {
+        if (Input.GetButtonDown("Fire1") && v >= 0 && !attacking && objetoInteracao == null)
+        {
             playerAnimator.SetTrigger("atack");
         }
 
-        if (Input.GetButtonDown("Jump") && Grounded && !attacking) {
+        if (Input.GetButtonDown("Fire1") && v >= 0 && !attacking && objetoInteracao != null)
+        {
+            objetoInteracao.SendMessage("interacao", SendMessageOptions.DontRequireReceiver);
+        }
+
+        if (Input.GetButtonDown("Jump") && Grounded && !attacking)
+        {
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
@@ -130,12 +139,16 @@ public class playerScript : MonoBehaviour
 
     void interagir()
     {
-        RaycastHit2D hit = Physics2D.Raycast(hand.position, dir, 0.1f, interacao);
         Debug.DrawRay(hand.position, dir * 0.1f, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(hand.position, dir, 0.1f, interacao);
 
         if (hit == true)
         {
-            print(hit.collider.gameObject.name);
+            objetoInteracao = hit.collider.gameObject;
+        }
+        else
+        {
+            objetoInteracao = null;
         }
     }
 }
