@@ -24,11 +24,18 @@ public class playerScript : MonoBehaviour
     public      LayerMask   interacao;
     public      GameObject  objetoInteracao;
 
+    //Sistema de armas
+    public      GameObject[]  armas;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        foreach (GameObject o in armas) {
+            o.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -129,6 +136,7 @@ public class playerScript : MonoBehaviour
         {
             case 0:
                 attacking = false;
+                armas[2].SetActive(false);
                 break;
 
             case 1:
@@ -151,4 +159,15 @@ public class playerScript : MonoBehaviour
             objetoInteracao = null;
         }
     }
+
+    void controleArma(int id)
+    {
+        foreach (GameObject o in armas)
+        {
+            o.SetActive(false);
+        }
+
+        armas[id].SetActive(true);
+    }
+
 }
