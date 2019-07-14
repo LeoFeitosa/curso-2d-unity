@@ -7960,6 +7960,7 @@ GameObject:
   - component: {fileID: 1209322976}
   - component: {fileID: 1209322977}
   - component: {fileID: 1209322978}
+  - component: {fileID: 1209322979}
   m_Layer: 0
   m_Name: A
   m_TagString: Arma
@@ -8046,6 +8047,19 @@ CircleCollider2D:
   m_Offset: {x: 0.1, y: 0.69}
   serializedVersion: 2
   m_Radius: 0.13
+--- !u!114 &1209322979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209322975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 2
 --- !u!1 &1229428234
 GameObject:
   m_ObjectHideFlags: 0
@@ -8349,6 +8363,7 @@ GameObject:
   - component: {fileID: 1348350672}
   - component: {fileID: 1348350673}
   - component: {fileID: 1348350674}
+  - component: {fileID: 1348350675}
   m_Layer: 0
   m_Name: C
   m_TagString: Arma
@@ -8435,6 +8450,19 @@ CircleCollider2D:
   m_Offset: {x: -0.17, y: -0.78}
   serializedVersion: 2
   m_Radius: 0.13
+--- !u!114 &1348350675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348350671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 2
 --- !u!1 &1421585762
 GameObject:
   m_ObjectHideFlags: 0
@@ -12636,6 +12664,7 @@ GameObject:
   - component: {fileID: 2049112113}
   - component: {fileID: 2049112114}
   - component: {fileID: 2049112115}
+  - component: {fileID: 2049112116}
   m_Layer: 0
   m_Name: B
   m_TagString: Arma
@@ -12722,6 +12751,19 @@ CircleCollider2D:
   m_Offset: {x: 0.84, y: 0.07}
   serializedVersion: 2
   m_Radius: 0.13
+--- !u!114 &2049112116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049112112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 2
 --- !u!1 &2094656458
 GameObject:
   m_ObjectHideFlags: 0

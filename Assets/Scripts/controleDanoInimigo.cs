@@ -21,7 +21,10 @@ public class controleDanoInimigo : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Arma":
-                print("tomei dano");
+
+                int danoTomado = collision.gameObject.GetComponent<armaInfo>().dano;
+
+                print("tomei "+ danoTomado + " dano");
                 break;
         }
     }
