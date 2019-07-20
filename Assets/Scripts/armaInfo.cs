@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class armaInfo : MonoBehaviour
 {
-    public int dano;
+    public float dano;
     public int tipoDano;
 
 }

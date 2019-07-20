@@ -1210,6 +1210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d9804289c8d2146bc8d790b8ae73df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ajusteDano:
+  - 0
+  - 50
+  - 0
 --- !u!50 &455997277
 Rigidbody2D:
   serializedVersion: 4
@@ -8063,8 +8067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 2
-  tipoDano: 2
+  dano: 100
+  tipoDano: 0
 --- !u!1 &1229428234
 GameObject:
   m_ObjectHideFlags: 0
@@ -8467,8 +8471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 2
-  tipoDano: 2
+  dano: 100
+  tipoDano: 0
 --- !u!1 &1421585762
 GameObject:
   m_ObjectHideFlags: 0
@@ -12769,8 +12773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf0105264d03a4cba1062577b5bb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 2
-  tipoDano: 2
+  dano: 100
+  tipoDano: 0
 --- !u!1 &2094656458
 GameObject:
   m_ObjectHideFlags: 0
