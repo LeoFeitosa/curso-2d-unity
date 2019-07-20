@@ -856,7 +856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410139058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.309, y: -0.476, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455997274}
@@ -1245,9 +1245,12 @@ MonoBehaviour:
   - 0
   - 50
   - 0
+  olhandoEsquerda: 0
+  playerEsquerda: 0
   knockforcePrefab: {fileID: 7002101028104686213, guid: d3d2aea00b4c21d478035138855985e0,
     type: 3}
   knockPosition: {fileID: 410139059}
+  knockX: 0.3
 --- !u!50 &455997277
 Rigidbody2D:
   serializedVersion: 4
