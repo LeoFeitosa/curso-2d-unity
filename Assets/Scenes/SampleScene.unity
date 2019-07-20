@@ -7747,6 +7747,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 0
+  tiposDano:
+  - Normal
+  - Fogo
+  - Agua
 --- !u!4 &1133241462
 Transform:
   m_ObjectHideFlags: 0
@@ -8060,6 +8064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dano: 2
+  tipoDano: 2
 --- !u!1 &1229428234
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,6 +8468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dano: 2
+  tipoDano: 2
 --- !u!1 &1421585762
 GameObject:
   m_ObjectHideFlags: 0
@@ -12764,6 +12770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dano: 2
+  tipoDano: 2
 --- !u!1 &2094656458
 GameObject:
   m_ObjectHideFlags: 0

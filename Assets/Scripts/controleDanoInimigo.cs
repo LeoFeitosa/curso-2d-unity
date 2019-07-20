@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class controleDanoInimigo : MonoBehaviour
 {
+    private _GameCtrl _GameCtrl;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
     }
 
     // Update is called once per frame
@@ -21,10 +23,12 @@ public class controleDanoInimigo : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Arma":
+                armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
 
-                int danoTomado = collision.gameObject.GetComponent<armaInfo>().dano;
+                int danoTomado = infoArma.dano;
+                int tipoDano = infoArma.tipoDano;
 
-                print("tomei "+ danoTomado + " dano");
+                print("tomei "+ danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
                 break;
         }
     }
