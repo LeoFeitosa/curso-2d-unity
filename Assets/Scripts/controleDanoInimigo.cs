@@ -8,6 +8,11 @@ public class controleDanoInimigo : MonoBehaviour
 
     public  float[]    ajusteDano;
 
+    //KnockBack
+    public GameObject knockforcePrefab; // forca de repulsao
+    public Transform knockPosition; // ponto de origem da forca
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,10 @@ public class controleDanoInimigo : MonoBehaviour
                 float danoTomano = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
 
                 print("tomei "+ danoTomano + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
+
+                GameObject knockTemp = Instantiate(knockforcePrefab, knockPosition.position, knockPosition.localRotation);
+                Destroy(knockTemp, 0.03f);
+
                 break;
         }
     }
