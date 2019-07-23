@@ -6,6 +6,7 @@ public class controleDanoInimigo : MonoBehaviour
 {
     private _GameCtrl _GameCtrl;
     private playerScript playerScript;
+    private SpriteRenderer sRender;
 
     public int vidaInimigo;
 
@@ -18,11 +19,18 @@ public class controleDanoInimigo : MonoBehaviour
     public float knockX; // valor padrao do positon X
     private float kx;
 
+    private bool getHit; // indica se tomou um hit
+
+    public Color[] characterColor; // controle de cor do personagem
+
     // Start is called before the first frame update
     void Start()
     {
         _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
         playerScript = FindObjectOfType(typeof(playerScript)) as playerScript;
+        sRender = GetComponent<SpriteRenderer>();
+
+        sRender.color = characterColor[0];
 
         if (olhandoEsquerda == true)
         {
@@ -72,25 +80,31 @@ public class controleDanoInimigo : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Arma":
-                armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
+                if (getHit == false)
+                {
+                    getHit = true;
+                    armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
 
-                float danoArma = infoArma.dano;
-                int tipoDano = infoArma.tipoDano;
+                    float danoArma = infoArma.dano;
+                    int tipoDano = infoArma.tipoDano;
 
-                //dano tomado
-                float danoTomado = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
+                    //dano tomado
+                    float danoTomado = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
 
-                vidaInimigo -= Mathf.RoundToInt(danoTomado); //rezus da vida a quantidade de dano tomado
+                    vidaInimigo -= Mathf.RoundToInt(danoTomado); //rezus da vida a quantidade de dano tomado
 
-                if (vidaInimigo <= 0) {
-                    Destroy(this.gameObject);
+                    if (vidaInimigo <= 0)
+                    {
+                        Destroy(this.gameObject);
+                    }
+
+                    print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
+
+                    GameObject knockTemp = Instantiate(knockforcePrefab, knockPosition.position, knockPosition.localRotation);
+                    Destroy(knockTemp, 0.02f);
+
+                    StartCoroutine("invuneravel");
                 }
-
-                print("tomei "+ danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
-
-                GameObject knockTemp = Instantiate(knockforcePrefab, knockPosition.position, knockPosition.localRotation);
-                Destroy(knockTemp, 0.02f);
-
                 break;
         }
     }
@@ -101,5 +115,21 @@ public class controleDanoInimigo : MonoBehaviour
         float x = transform.localScale.x;
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+    }
+
+    IEnumerator invuneravel()
+    {
+        sRender.color = characterColor[1];
+        yield return new WaitForSeconds(0.2f);
+        sRender.color = characterColor[0];
+        yield return new WaitForSeconds(0.2f);
+        sRender.color = characterColor[1];
+        yield return new WaitForSeconds(0.2f);
+        sRender.color = characterColor[0];
+        yield return new WaitForSeconds(0.2f);
+        sRender.color = characterColor[1];
+        yield return new WaitForSeconds(0.2f);
+        sRender.color = characterColor[0];
+        getHit = false;
     }
 }
