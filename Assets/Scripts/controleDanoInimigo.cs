@@ -7,6 +7,8 @@ public class controleDanoInimigo : MonoBehaviour
     private _GameCtrl _GameCtrl;
     private playerScript playerScript;
 
+    public int vidaInimigo;
+
     public  float[]    ajusteDano;
     public bool olhandoEsquerda, playerEsquerda;
 
@@ -76,9 +78,15 @@ public class controleDanoInimigo : MonoBehaviour
                 int tipoDano = infoArma.tipoDano;
 
                 //dano tomado
-                float danoTomano = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
+                float danoTomado = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
 
-                print("tomei "+ danoTomano + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
+                vidaInimigo -= Mathf.RoundToInt(danoTomado); //rezus da vida a quantidade de dano tomado
+
+                if (vidaInimigo <= 0) {
+                    Destroy(this.gameObject);
+                }
+
+                print("tomei "+ danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
 
                 GameObject knockTemp = Instantiate(knockforcePrefab, knockPosition.position, knockPosition.localRotation);
                 Destroy(knockTemp, 0.02f);
