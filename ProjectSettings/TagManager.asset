@@ -58,3 +58,6 @@ TagManager:
   - name: decoracao primeiro plano
     uniqueID: 3512780181
     locked: 0
+  - name: HUD
+    uniqueID: 2659813533
+    locked: 0

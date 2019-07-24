@@ -8,12 +8,19 @@ public class controleDanoInimigo : MonoBehaviour
     private playerScript playerScript;
     private SpriteRenderer sRender;
 
+    [Header("Configuração de Vida")]
     public int vidaInimigo;
+    public int vidaAtual;
+    public GameObject barrasVida; // objeto contendo todas as barras
+    public Transform hpBar; // objeto indicador da quantidade de vida
+    public Color[] characterColor; // controle de cor do personagem
+    private float percVida; // controla o percentual de vida
 
+    [Header("Configuração Resistência/Fraqueza")]
     public  float[]    ajusteDano;
     public bool olhandoEsquerda, playerEsquerda;
 
-    //KnockBack
+    [Header("Configuração KnockBack")]
     public GameObject knockforcePrefab; // forca de repulsao
     public Transform knockPosition; // ponto de origem da forca
     public float knockX; // valor padrao do positon X
@@ -21,7 +28,6 @@ public class controleDanoInimigo : MonoBehaviour
 
     private bool getHit; // indica se tomou um hit
 
-    public Color[] characterColor; // controle de cor do personagem
 
     // Start is called before the first frame update
     void Start()
@@ -31,13 +37,17 @@ public class controleDanoInimigo : MonoBehaviour
         sRender = GetComponent<SpriteRenderer>();
 
         sRender.color = characterColor[0];
+        barrasVida.SetActive(false);
+        vidaAtual = vidaInimigo;
+        hpBar.localScale = new Vector3(1, 1, 1);
 
         if (olhandoEsquerda == true)
         {
             olhandoEsquerda = !olhandoEsquerda; // inverte o valor da variavel
             float x = transform.localScale.x;
             x *= -1;
-            transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);  
+            transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+            barrasVida.transform.localScale = new Vector3(x, barrasVida.transform.localScale.y, barrasVida.transform.localScale.x);
         }
   }
 
@@ -83,6 +93,7 @@ public class controleDanoInimigo : MonoBehaviour
                 if (getHit == false)
                 {
                     getHit = true;
+                    barrasVida.SetActive(true);
                     armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
 
                     float danoArma = infoArma.dano;
@@ -91,9 +102,14 @@ public class controleDanoInimigo : MonoBehaviour
                     //dano tomado
                     float danoTomado = danoArma + (danoArma * (ajusteDano[tipoDano] / 100));
 
-                    vidaInimigo -= Mathf.RoundToInt(danoTomado); //rezus da vida a quantidade de dano tomado
+                    vidaAtual -= Mathf.RoundToInt(danoTomado); //rezus da vida a quantidade de dano tomado
 
-                    if (vidaInimigo <= 0)
+                    percVida = (float)vidaAtual / (float)vidaInimigo;
+                    if (percVida < 0) { percVida = 0; }
+
+                    hpBar.localScale = new Vector3(percVida, 1, 1);
+
+                    if (vidaAtual <= 0)
                     {
                         Destroy(this.gameObject);
                     }
@@ -115,6 +131,7 @@ public class controleDanoInimigo : MonoBehaviour
         float x = transform.localScale.x;
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+        barrasVida.transform.localScale = new Vector3(x, barrasVida.transform.localScale.y, barrasVida.transform.localScale.x);
     }
 
     IEnumerator invuneravel()
@@ -131,5 +148,6 @@ public class controleDanoInimigo : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         sRender.color = characterColor[0];
         getHit = false;
+        barrasVida.SetActive(false);
     }
 }
