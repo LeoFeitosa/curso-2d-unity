@@ -15,6 +15,7 @@ public class controleDanoInimigo : MonoBehaviour
     public Transform hpBar; // objeto indicador da quantidade de vida
     public Color[] characterColor; // controle de cor do personagem
     private float percVida; // controla o percentual de vida
+    public GameObject danoTXTPrefab; // objeto que ira exibir o dano tomado
 
     [Header("Configuração Resistência/Fraqueza")]
     public  float[]    ajusteDano;
@@ -115,6 +116,14 @@ public class controleDanoInimigo : MonoBehaviour
                     }
 
                     print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
+
+                    GameObject danoTemp = Instantiate(danoTXTPrefab, transform.position, transform.localRotation);
+                    danoTemp.GetComponent<TextMesh>().text = Mathf.RoundToInt(danoTomado).ToString();
+                    danoTemp.GetComponent<MeshRenderer>().sortingLayerName = "HUD";
+                    int forcaX = 50;
+                    if(playerEsquerda == false) { forcaX *= -1; }
+                    danoTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaX, 230));
+                    Destroy(danoTemp, 1f);
 
                     GameObject knockTemp = Instantiate(knockforcePrefab, knockPosition.position, knockPosition.localRotation);
                     Destroy(knockTemp, 0.02f);
