@@ -97,7 +97,7 @@ public class controleDanoInimigo : MonoBehaviour
                     barrasVida.SetActive(true);
                     armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
 
-                    float danoArma = infoArma.dano;
+                    float danoArma = Random.Range(infoArma.danoMin, infoArma.danoMax);
                     int tipoDano = infoArma.tipoDano;
 
                     //dano tomado
