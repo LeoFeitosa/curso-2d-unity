@@ -1250,7 +1250,7 @@ MonoBehaviour:
   characterColor:
   - {r: 0.6698113, g: 0.43284976, b: 0.43284976, a: 1}
   - {r: 0.67058825, g: 0.43137258, b: 0.43137258, a: 0.39215687}
-  danoTXTPrefab: {fileID: 2953011439537229864, guid: 12080a2f5608b7c41970599c37c8aa6d,
+  danoTXTPrefab: {fileID: 2245515620308249963, guid: 5cdc9f61658e3174884572fe0eaaca7c,
     type: 3}
   ajusteDano:
   - 0

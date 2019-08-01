@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class controleDanoInimigo : MonoBehaviour
 {
@@ -118,8 +119,8 @@ public class controleDanoInimigo : MonoBehaviour
                     print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
 
                     GameObject danoTemp = Instantiate(danoTXTPrefab, transform.position, transform.localRotation);
-                    danoTemp.GetComponent<TextMesh>().text = Mathf.RoundToInt(danoTomado).ToString();
-                    danoTemp.GetComponent<MeshRenderer>().sortingLayerName = "HUD";
+                    danoTemp.GetComponentInChildren<TextMeshPro>().text = Mathf.RoundToInt(danoTomado).ToString();
+                    danoTemp.GetComponentInChildren<MeshRenderer>().sortingLayerName = "HUD";
                     int forcaX = 50;
                     if(playerEsquerda == false) { forcaX *= -1; }
                     danoTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaX, 230));
