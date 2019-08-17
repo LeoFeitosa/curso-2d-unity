@@ -8,6 +8,7 @@ public class controleDanoInimigo : MonoBehaviour
     private _GameCtrl _GameCtrl;
     private playerScript playerScript;
     private SpriteRenderer sRender;
+    private Animator animator;
 
     [Header("Configuração de Vida")]
     public int vidaInimigo;
@@ -29,7 +30,7 @@ public class controleDanoInimigo : MonoBehaviour
     private float kx;
 
     private bool getHit; // indica se tomou um hit
-
+    private bool died; // indica se esta morto
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class controleDanoInimigo : MonoBehaviour
         _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
         playerScript = FindObjectOfType(typeof(playerScript)) as playerScript;
         sRender = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         sRender.color = characterColor[0];
         barrasVida.SetActive(false);
@@ -85,10 +87,14 @@ public class controleDanoInimigo : MonoBehaviour
         }
 
         knockPosition.localPosition = new Vector3(kx, knockPosition.localPosition.y, 0);
+
+        animator.SetBool("grounded", true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (died == true) { return; }
+
         switch (collision.gameObject.tag)
         {
             case "Arma":
@@ -97,6 +103,9 @@ public class controleDanoInimigo : MonoBehaviour
                     getHit = true;
                     barrasVida.SetActive(true);
                     armaInfo infoArma = collision.gameObject.GetComponent<armaInfo>();
+
+                    // animacao de hit
+                    animator.SetTrigger("hit");
 
                     float danoArma = Random.Range(infoArma.danoMin, infoArma.danoMax);
                     int tipoDano = infoArma.tipoDano;
@@ -113,7 +122,9 @@ public class controleDanoInimigo : MonoBehaviour
 
                     if (vidaAtual <= 0)
                     {
-                        Destroy(this.gameObject);
+                        died = true;
+                        animator.SetInteger("idAnimation", 3);
+                        Destroy(this.gameObject, 3);
                     }
 
                     print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);

@@ -1133,6 +1133,7 @@ GameObject:
   - component: {fileID: 455997276}
   - component: {fileID: 455997277}
   - component: {fileID: 455997278}
+  - component: {fileID: 455997279}
   m_Layer: 10
   m_Name: InimigoA
   m_TagString: Untagged
@@ -1299,6 +1300,25 @@ CircleCollider2D:
   m_Offset: {x: -0.01786518, y: -0.29602447}
   serializedVersion: 2
   m_Radius: 0.17816068
+--- !u!95 &455997279
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455997272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4686e58fb2d26c245a462348e2b92941, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &457392060
 GameObject:
   m_ObjectHideFlags: 0
