@@ -6,6 +6,7 @@ public class _GameCtrl : MonoBehaviour
 {
     public int test;
     public string[] tiposDano;
+    public GameObject[] fxDano;
 
     // Start is called before the first frame update
     void Start()
