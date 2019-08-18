@@ -32,6 +32,11 @@ public class controleDanoInimigo : MonoBehaviour
     private bool getHit; // indica se tomou um hit
     private bool died; // indica se esta morto
 
+    [Header("Configuração Chão")]
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,7 +129,7 @@ public class controleDanoInimigo : MonoBehaviour
                     {
                         died = true;
                         animator.SetInteger("idAnimation", 3);
-                        Destroy(this.gameObject, 3);
+                        StartCoroutine("loot");
                     }
 
                     print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
@@ -156,6 +161,17 @@ public class controleDanoInimigo : MonoBehaviour
         x *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
         barrasVida.transform.localScale = new Vector3(x, barrasVida.transform.localScale.y, barrasVida.transform.localScale.x);
+    }
+
+    IEnumerator loot()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject fxMorte = Instantiate(_GameCtrl.fxMorte, groundCheck.position, transform.localRotation);
+        yield return new WaitForSeconds(0.5f);
+        sRender.enabled = false;
+        yield return new WaitForSeconds(0.7f);
+        Destroy(fxMorte);
+        Destroy(this.gameObject);
     }
 
     IEnumerator invuneravel()
