@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arma
   - Caixa
+  - coletavel
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - ground
   - interacao
   - inimigo
-  - 
+  - coletavel
   - 
   - 
   - 

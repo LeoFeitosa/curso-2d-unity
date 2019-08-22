@@ -36,6 +36,9 @@ public class controleDanoInimigo : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
+    [Header("Configuração de Loot")]
+    public GameObject loots;
+
 
     // Start is called before the first frame update
     void Start()
@@ -169,6 +172,13 @@ public class controleDanoInimigo : MonoBehaviour
         GameObject fxMorte = Instantiate(_GameCtrl.fxMorte, groundCheck.position, transform.localRotation);
         yield return new WaitForSeconds(0.5f);
         sRender.enabled = false;
+
+        // CONTROLER DE LOOT
+        int qtdMoedas = Random.Range(1, 10);
+        for (int l=0; l<=qtdMoedas; l++) {
+            GameObject lootTemp = Instantiate(loots, transform.position, transform.localRotation);
+            lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), 150));
+        }
         yield return new WaitForSeconds(0.7f);
         Destroy(fxMorte);
         Destroy(this.gameObject);
