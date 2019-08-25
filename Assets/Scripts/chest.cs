@@ -9,6 +9,8 @@ public class chest : MonoBehaviour
     private SpriteRenderer  spriteRenderer;
     public Sprite[]         imagemObjeto;
     public bool             open;
+    public GameObject       loots;
+    private bool            gerouLoot;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +30,12 @@ public class chest : MonoBehaviour
                 spriteRenderer.sprite = imagemObjeto[1];
                 
                 loadGameCtrl();
-                
-                _GameCtrl.test += 1;
+
+                if(gerouLoot == false)
+                {
+                    StartCoroutine("gerarLoot");
+                }
+
                 break;
 
             case false:
@@ -43,6 +49,19 @@ public class chest : MonoBehaviour
         if (_GameCtrl == null)
         {
             _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
+        }
+    }
+
+    IEnumerator gerarLoot()
+    {
+        gerouLoot = true;
+        // CONTROLE DE LOOT
+        int qtdMoedas = Random.Range(1, 5);
+        for (int l = 0; l <= qtdMoedas; l++)
+        {
+            GameObject lootTemp = Instantiate(loots, transform.position, transform.localRotation);
+            lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-25, 25), 150));
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

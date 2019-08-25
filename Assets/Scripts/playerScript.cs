@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
+    private _GameCtrl _GameCtrl;
+
     private     Animator    playerAnimator;
     private     Rigidbody2D playerRb;
     private     float       h, v;
@@ -30,6 +32,8 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
+
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
 
@@ -170,11 +174,14 @@ public class playerScript : MonoBehaviour
         armas[id].SetActive(true);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         switch(collision.gameObject.tag)
         {
             case "coletavel":
+
+                _GameCtrl.gold += 1;
+
                 Destroy(collision.gameObject);
                 break;
         }
