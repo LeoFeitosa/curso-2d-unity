@@ -170,4 +170,14 @@ public class playerScript : MonoBehaviour
         armas[id].SetActive(true);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "coletavel":
+                Destroy(collision.gameObject);
+                break;
+        }
+    }
+
 }

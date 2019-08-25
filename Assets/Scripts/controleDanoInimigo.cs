@@ -173,11 +173,12 @@ public class controleDanoInimigo : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         sRender.enabled = false;
 
-        // CONTROLER DE LOOT
-        int qtdMoedas = Random.Range(1, 10);
+        // CONTROLE DE LOOT
+        int qtdMoedas = Random.Range(1, 5);
         for (int l=0; l<=qtdMoedas; l++) {
             GameObject lootTemp = Instantiate(loots, transform.position, transform.localRotation);
-            lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), 150));
+            lootTemp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-25, 25), 150));
+            yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(0.7f);
         Destroy(fxMorte);
