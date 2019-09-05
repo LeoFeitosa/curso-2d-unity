@@ -180,9 +180,8 @@ public class playerScript : MonoBehaviour
         {
             case "coletavel":
 
-                _GameCtrl.gold += 1;
+                collision.gameObject.SendMessage("coletar", SendMessageOptions.DontRequireReceiver);
 
-                Destroy(collision.gameObject);
                 break;
         }
     }

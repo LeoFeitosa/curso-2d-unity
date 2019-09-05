@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class coin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private _GameCtrl _GameCtrl;
+
+    public int valor;
+
+    private void Start()
     {
-        
+        _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void coletar()
     {
-        
+        _GameCtrl.gold += valor;
+        Destroy(this.gameObject);
     }
 }
