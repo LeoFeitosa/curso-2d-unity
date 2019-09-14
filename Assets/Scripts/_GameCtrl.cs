@@ -20,6 +20,7 @@ public class _GameCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        boltTxt.text = gold.ToString("N0");
+        string s = gold.ToString("N0");
+        boltTxt.text = s.Replace(",", ".");
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class chest : MonoBehaviour
 {
-    private _GameCtrl _GameCtrl;
-
     private SpriteRenderer  spriteRenderer;
     public Sprite[]         imagemObjeto;
     public bool             open;
@@ -15,40 +13,17 @@ public class chest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadGameCtrl();
-
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void interacao()
     {
-        open = !open;
-
-        switch (open)
+        if (open == false)
         {
-            case true:
-                spriteRenderer.sprite = imagemObjeto[1];
-                
-                loadGameCtrl();
-
-                if(gerouLoot == false)
-                {
-                    StartCoroutine("gerarLoot");
-                }
-
-                break;
-
-            case false:
-                spriteRenderer.sprite = imagemObjeto[0];
-                break;
-        }
-    }
-
-    private void loadGameCtrl()
-    {
-        if (_GameCtrl == null)
-        {
-            _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
+            open = true;
+            spriteRenderer.sprite = imagemObjeto[1];                        
+            StartCoroutine("gerarLoot");
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 

@@ -12,8 +12,13 @@ public class playerScript : MonoBehaviour
 
     public      Transform   groundCheck; //objeto responsavel em deectar se o prsonagem esta sobre uma superficie
     public      LayerMask   whatIsGround; //indica o que é superficie para o teste do grounded
+
+    public      int         vidaMaxima;
+    public      int         vidaAtual;
+
     public      float       speed; //velocidade de movimentacao do personagem
     public      float       jumpForce; //forca aplicada para gerar o pulo do personagem
+
     public      bool        Grounded; //indica se o personagem esta pisando em alguma superficie
     public      bool        attacking; //indica de o personagem esta atacando
     public      bool        loockLeft; //indica se o personagem esta virado para a esquerda
@@ -25,6 +30,7 @@ public class playerScript : MonoBehaviour
     private     Vector3     dir = Vector3.right;
     public      LayerMask   interacao;
     public      GameObject  objetoInteracao;
+    public      GameObject  alertaBalao;
 
     //Sistema de armas
     public      GameObject[]  armas;
@@ -36,6 +42,8 @@ public class playerScript : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        vidaAtual = vidaMaxima;
 
         foreach (GameObject o in armas) {
             o.SetActive(false);
@@ -157,10 +165,12 @@ public class playerScript : MonoBehaviour
         if (hit == true)
         {
             objetoInteracao = hit.collider.gameObject;
+            alertaBalao.SetActive(true);
         }
         else
         {
             objetoInteracao = null;
+            alertaBalao.SetActive(false);
         }
     }
 
