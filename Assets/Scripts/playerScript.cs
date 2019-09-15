@@ -90,13 +90,18 @@ public class playerScript : MonoBehaviour
             idAnimation = 0;
         }
 
-        if (Input.GetButtonDown("Fire1") && v >= 0 && !attacking && objetoInteracao == null)
+        if (Input.GetButtonDown("Fire1") && v >= 0 && attacking == false && objetoInteracao == null)
         {
             playerAnimator.SetTrigger("atack");
         }
 
-        if (Input.GetButtonDown("Fire1") && v >= 0 && !attacking && objetoInteracao != null)
+        if (Input.GetButtonDown("Fire1") && v >= 0 && attacking == false && objetoInteracao != null)
         {
+            if (objetoInteracao.tag == "door")
+            {
+                objetoInteracao.GetComponent<door>().tPlayer = this.transform;
+            }
+
             objetoInteracao.SendMessage("interacao", SendMessageOptions.DontRequireReceiver);
         }
 

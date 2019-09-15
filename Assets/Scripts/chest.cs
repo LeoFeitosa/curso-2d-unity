@@ -8,7 +8,6 @@ public class chest : MonoBehaviour
     public Sprite[]         imagemObjeto;
     public bool             open;
     public GameObject[]     loots;
-    private bool            gerouLoot;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class chest : MonoBehaviour
 
     IEnumerator gerarLoot()
     {
-        gerouLoot = true;
         // CONTROLE DE LOOT
         int qtdMoedas = Random.Range(1, 5);
         for (int l = 0; l <= qtdMoedas; l++)

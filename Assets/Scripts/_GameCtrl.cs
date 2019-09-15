@@ -5,6 +5,8 @@ using TMPro;
 
 public class _GameCtrl : MonoBehaviour
 {
+    private fade fade;
+
     public string[] tiposDano;
     public GameObject[] fxDano;
     public GameObject fxMorte;
@@ -14,7 +16,8 @@ public class _GameCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        fade = FindObjectOfType(typeof(fade)) as fade;
+        fade.fadeOut();
     }
 
     // Update is called once per frame
