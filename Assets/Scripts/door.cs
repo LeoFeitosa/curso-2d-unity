@@ -8,6 +8,9 @@ public class door : MonoBehaviour
     public Transform tPlayer; // TRANSFORM DO PLAYER
     public Transform destino;
 
+    public bool escuro;
+    public Material luz2D, padrao2D;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,17 @@ public class door : MonoBehaviour
         fade.fadeIn();
         yield return new WaitWhile(() => fade.fume.color.a < 0.9f);
         tPlayer.gameObject.SetActive(false);
+
+        switch (escuro)
+        {
+            case true:
+                tPlayer.gameObject.GetComponent<SpriteRenderer>().material = luz2D;
+                break;
+            case false:
+                tPlayer.gameObject.GetComponent<SpriteRenderer>().material = padrao2D;
+                break;
+        }
+
         tPlayer.position = destino.position;
         yield return new WaitForSeconds(0.5f);
         tPlayer.gameObject.SetActive(true);
