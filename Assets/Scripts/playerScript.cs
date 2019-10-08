@@ -8,6 +8,8 @@ public class playerScript : MonoBehaviour
 
     private     Animator    playerAnimator;
     private     Rigidbody2D playerRb;
+    private     SpriteRenderer sRender;
+
     private     float       h, v;
 
     public      Transform   groundCheck; //objeto responsavel em deectar se o prsonagem esta sobre uma superficie
@@ -34,7 +36,7 @@ public class playerScript : MonoBehaviour
 
     //Sistema de armas
     public      GameObject[]  armas;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,7 @@ public class playerScript : MonoBehaviour
 
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        sRender = GetComponent<SpriteRenderer>();
 
         vidaAtual = vidaMaxima;
 
@@ -97,11 +100,6 @@ public class playerScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && v >= 0 && attacking == false && objetoInteracao != null)
         {
-            if (objetoInteracao.tag == "door")
-            {
-                objetoInteracao.GetComponent<door>().tPlayer = this.transform;
-            }
-
             objetoInteracao.SendMessage("interacao", SendMessageOptions.DontRequireReceiver);
         }
 
@@ -201,4 +199,12 @@ public class playerScript : MonoBehaviour
         }
     }
 
+    public void changeMaterial(Material novoMaterial)
+    {
+        sRender.material = novoMaterial;
+        foreach (GameObject o in armas)
+        {
+            o.GetComponent<SpriteRenderer>().material = novoMaterial;
+        }
+    }
 }
