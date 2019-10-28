@@ -1475,6 +1475,7 @@ GameObject:
   - component: {fileID: 455997277}
   - component: {fileID: 455997278}
   - component: {fileID: 455997279}
+  - component: {fileID: 455997280}
   m_Layer: 10
   m_Name: InimigoA
   m_TagString: Untagged
@@ -1591,8 +1592,8 @@ MonoBehaviour:
   barrasVida: {fileID: 1333571197}
   hpBar: {fileID: 1647267758}
   characterColor:
-  - {r: 0.6698113, g: 0.43284976, b: 0.43284976, a: 1}
-  - {r: 0.67058825, g: 0.43137258, b: 0.43137258, a: 0.39215687}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   danoTXTPrefab: {fileID: 2245515620308249963, guid: 5cdc9f61658e3174884572fe0eaaca7c,
     type: 3}
   ajusteDano:
@@ -1666,6 +1667,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &455997280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455997272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe45e91b11cb344b90b748e88f2a81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  spriteSheetName: goblin_1
+  loadedSpriteSheetName: 
 --- !u!1 &457392060
 GameObject:
   m_ObjectHideFlags: 0
