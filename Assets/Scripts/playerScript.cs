@@ -35,6 +35,8 @@ public class playerScript : MonoBehaviour
     public      GameObject  alertaBalao;
 
     //Sistema de armas
+    public      int         idArma;
+    public      int         idArmaAtual;
     public      GameObject[]  armas;
     
     // Start is called before the first frame update
@@ -51,6 +53,8 @@ public class playerScript : MonoBehaviour
         foreach (GameObject o in armas) {
             o.SetActive(false);
         }
+
+        trocarArma(idArma);
     }
 
     private void FixedUpdate()
@@ -134,6 +138,14 @@ public class playerScript : MonoBehaviour
         playerAnimator.SetFloat("speedY", playerRb.velocity.y);
     }
 
+    private void LateUpdate()
+    {
+        if(idArma != idArmaAtual)
+        {
+            trocarArma(idArma);            
+        }
+    }
+
     private void flip()
     {
         loockLeft = !loockLeft; // inverte o valor da variavel
@@ -206,5 +218,15 @@ public class playerScript : MonoBehaviour
         {
             o.GetComponent<SpriteRenderer>().material = novoMaterial;
         }
+    }
+
+    public void trocarArma(int id)
+    {
+        idArma = id;
+        armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+        armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+        armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+
+        idArmaAtual = idArma;
     }
 }

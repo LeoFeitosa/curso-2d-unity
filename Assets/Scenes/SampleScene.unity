@@ -1593,7 +1593,7 @@ MonoBehaviour:
   hpBar: {fileID: 1647267758}
   characterColor:
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.514151, b: 0.5582041, a: 1}
   danoTXTPrefab: {fileID: 2245515620308249963, guid: 5cdc9f61658e3174884572fe0eaaca7c,
     type: 3}
   ajusteDano:
@@ -1926,7 +1926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1423788, y: 1.5999999, z: -10}
+  m_LocalPosition: {x: -2.1375465, y: 1.5999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2762,6 +2762,8 @@ MonoBehaviour:
     m_Bits: 512
   objetoInteracao: {fileID: 0}
   alertaBalao: {fileID: 1134933554}
+  idArma: 2
+  idArmaAtual: 0
   armas:
   - {fileID: 1209322975}
   - {fileID: 2049112112}
@@ -7131,6 +7133,39 @@ MonoBehaviour:
   fxMorte: {fileID: 7882091023603995806, guid: a6c6dd36682a18b4e853b5e13e0f83ff, type: 3}
   gold: 0
   boltTxt: {fileID: 1776735070}
+  spriteArmas1:
+  - {fileID: 4942803658038726614, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -9004990608046106943, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -4470654044548505675, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -2689349333746839185, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -1183829936002771988, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 1857488987712296977, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -1873774783473440122, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -3702229310380340002, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 7579411005701190920, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 801375890109350175, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  spriteArmas2:
+  - {fileID: 6123003023063038561, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 8289387723579576647, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 788015303910585071, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 1340437603416802206, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -993536727369214721, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -1223835181241114015, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -5292343366637218935, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -1676212896523138592, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 7108768019886350960, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 5558760092411029440, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  spriteArmas3:
+  - {fileID: 4978276593797209138, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -8675077286395491812, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 7441372264213655823, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -841782673843346218, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 6364903689134042001, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 1901863140318548941, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -5370655801033658038, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -2309659259946414841, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: 3699861509399247437, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  - {fileID: -5566121243414835775, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
 --- !u!4 &1133241462
 Transform:
   m_ObjectHideFlags: 0

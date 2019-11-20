@@ -11,7 +11,12 @@ public class _GameCtrl : MonoBehaviour
     public GameObject[] fxDano;
     public GameObject fxMorte;
     public int gold; // armezena a quantidad de ouro coletada
-    public TextMeshProUGUI boltTxt; 
+    public TextMeshProUGUI boltTxt;
+
+    [Header("Banco de dados armas")]
+    public Sprite[] spriteArmas1;
+    public Sprite[] spriteArmas2;
+    public Sprite[] spriteArmas3;
 
     // Start is called before the first frame update
     void Start()
