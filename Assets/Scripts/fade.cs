@@ -38,6 +38,7 @@ public class fade : MonoBehaviour
 
     IEnumerator fadeO()
     {
+        yield return new WaitForSeconds(0.1f);
         for (float i = 0; i <= 1; i += step)
         {
             fume.color = Color.Lerp(corTransicao[1], corTransicao[0], i);

@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class mudarCena : MonoBehaviour
 {
+    private fade fade;
     public string cenaDestino;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        fade = FindObjectOfType(typeof(fade)) as fade;
     }
 
     // Update is called once per frame
@@ -21,6 +22,13 @@ public class mudarCena : MonoBehaviour
 
     public void interacao()
     {
+        StartCoroutine("mudancaCena");
+    }
+
+    IEnumerator mudancaCena()
+    {
+        fade.fadeIn();
+        yield return new WaitWhile(() => fade.fume.color.a < 0.9f);
         SceneManager.LoadScene(cenaDestino);
     }
 }

@@ -26,7 +26,7 @@ public class door : MonoBehaviour
     IEnumerator acionarPorta()
     {
         fade.fadeIn();
-        yield return new WaitWhile(() => fade.fume.color.a < 0.9f);
+        // yield return new WaitWhile(() => fade.fume.color.a < 0.9f);
         playerScript.gameObject.SetActive(false);
 
         switch (escuro)
