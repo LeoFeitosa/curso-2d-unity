@@ -174,11 +174,12 @@ public class playerScript : MonoBehaviour
 
     void interagir()
     {
-        Debug.DrawRay(hand.position, dir * 0.1f, Color.red);
+        Debug.DrawRay(hand.position, dir * 0.9f, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(hand.position, dir, 0.1f, interacao);
 
         if (hit == true)
         {
+        print("interagiu");
             objetoInteracao = hit.collider.gameObject;
             alertaBalao.SetActive(true);
         }

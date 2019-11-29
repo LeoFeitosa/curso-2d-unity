@@ -135,7 +135,7 @@ public class controleDanoInimigo : MonoBehaviour
                         StartCoroutine("loot");
                     }
 
-                    print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
+                    // print("tomei " + danoTomado + " de dano do tipo " + _GameCtrl.tiposDano[tipoDano]);
 
                     GameObject danoTemp = Instantiate(danoTXTPrefab, transform.position, transform.localRotation);
                     danoTemp.GetComponentInChildren<TextMeshPro>().text = Mathf.RoundToInt(danoTomado).ToString();
