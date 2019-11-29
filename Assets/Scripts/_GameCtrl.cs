@@ -17,6 +17,10 @@ public class _GameCtrl : MonoBehaviour
     public Sprite[] spriteArmas1;
     public Sprite[] spriteArmas2;
     public Sprite[] spriteArmas3;
+    public int[] danoMinArma;
+    public int[] danoMaxArma;
+    public int[] tipoDanoArma;
+
 
     // Start is called before the first frame update
     void Start()

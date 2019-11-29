@@ -2762,7 +2762,7 @@ MonoBehaviour:
     m_Bits: 512
   objetoInteracao: {fileID: 0}
   alertaBalao: {fileID: 1134933554}
-  idArma: 2
+  idArma: 0
   idArmaAtual: 0
   armas:
   - {fileID: 1209322975}
@@ -7166,6 +7166,9 @@ MonoBehaviour:
   - {fileID: -2309659259946414841, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: 3699861509399247437, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: -5566121243414835775, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
+  danoMinArma: 010000000200000003000000
+  danoMaxArma: 020000000400000008000000
+  tipoDanoArma: 000000000000000000000000
 --- !u!4 &1133241462
 Transform:
   m_ObjectHideFlags: 0

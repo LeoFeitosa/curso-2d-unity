@@ -10,10 +10,15 @@ public class fade : MonoBehaviour
     public Color[] corTransicao;
     public float step;
 
+    public bool emTransicao;
+
     public void fadeIn()
     {
-        painelFume.SetActive(true);
-        StartCoroutine("fadeI");
+        if (!emTransicao)
+        {
+            painelFume.SetActive(true);
+            StartCoroutine("fadeI");
+        }
     }
 
     public void fadeOut()
@@ -23,6 +28,7 @@ public class fade : MonoBehaviour
 
     IEnumerator fadeI()
     {
+        emTransicao = true;
         for (float i=0; i<=1; i+=step)
         {
             fume.color = Color.Lerp(corTransicao[0], corTransicao[1], i);
@@ -39,5 +45,6 @@ public class fade : MonoBehaviour
         }
 
         painelFume.SetActive(false);
+        emTransicao = false;
     }
 }

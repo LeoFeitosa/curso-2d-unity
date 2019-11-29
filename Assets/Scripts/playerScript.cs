@@ -223,9 +223,24 @@ public class playerScript : MonoBehaviour
     public void trocarArma(int id)
     {
         idArma = id;
+
         armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+        armaInfo tempArmaInfo = armas[0].GetComponent<armaInfo>();
+        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+        
         armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+        tempArmaInfo = armas[1].GetComponent<armaInfo>();
+        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+
         armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+        tempArmaInfo = armas[2].GetComponent<armaInfo>();
+        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
 
         idArmaAtual = idArma;
     }
