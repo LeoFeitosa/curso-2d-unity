@@ -11,6 +11,16 @@ public class _GameCtrl : MonoBehaviour
     public int gold; // armezena a quantidad de ouro coletada
     public TextMeshProUGUI boltTxt;
 
+    [Header("Informações Player")]
+    public int idPersonagem;
+    public int idPersonagemAtual;
+    public int vidaMaxima;
+    public int idArma;
+    
+    [Header("Banco de Personagens")]
+    public string[] nomePersonagem;
+    public Texture[] spriteSheetName;
+
     [Header("Banco de dados armas")]
     public Sprite[] spriteArmas1;
     public Sprite[] spriteArmas2;

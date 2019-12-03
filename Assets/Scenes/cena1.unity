@@ -1679,6 +1679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe45e91b11cb344b90b748e88f2a81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   sprites: []
   spriteSheetName: goblin_1
   loadedSpriteSheetName: 
@@ -1926,7 +1927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.543623, y: 1.7800009, z: -10}
+  m_LocalPosition: {x: 0.14406776, y: 1.5999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2757,6 +2758,7 @@ GameObject:
   - component: {fileID: 775364953}
   - component: {fileID: 775364954}
   - component: {fileID: 775364955}
+  - component: {fileID: 775364956}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2868,8 +2870,8 @@ MonoBehaviour:
     m_Bits: 768
   vidaMaxima: 10
   vidaAtual: 10
-  speed: 3
-  jumpForce: 200
+  speed: 4
+  jumpForce: 210
   Grounded: 0
   attacking: 0
   loockLeft: 0
@@ -2977,6 +2979,22 @@ CircleCollider2D:
   m_Offset: {x: 0.014576274, y: -0.26107678}
   serializedVersion: 2
   m_Radius: 0.2038994
+--- !u!114 &775364956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775364947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe45e91b11cb344b90b748e88f2a81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  sprites: []
+  spriteSheetName: 
+  loadedSpriteSheetName: 
 --- !u!1 &777215650
 GameObject:
   m_ObjectHideFlags: 3
@@ -7253,6 +7271,32 @@ MonoBehaviour:
   fxMorte: {fileID: 7882091023603995806, guid: a6c6dd36682a18b4e853b5e13e0f83ff, type: 3}
   gold: 0
   boltTxt: {fileID: 1776735070}
+  idPersonagem: 0
+  idPersonagemAtual: 0
+  vidaMaxima: 10
+  idArma: 2
+  nomePersonagem:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  spriteSheetName:
+  - {fileID: 2800000, guid: fb4afd6a1c29da34e947f6136cb77a4b, type: 3}
+  - {fileID: 2800000, guid: 16daa08d7609fda428a5e5a82156bdde, type: 3}
+  - {fileID: 2800000, guid: 0e7d0fbb6348ee84c96263939cf0c5e6, type: 3}
+  - {fileID: 2800000, guid: 21c4b691c80350a4882b7e23c4ff95b9, type: 3}
+  - {fileID: 2800000, guid: 2bf2d1feb364001489e2bc4ac947b067, type: 3}
+  - {fileID: 2800000, guid: 2992a6cb3b17780469eb293990a8d04b, type: 3}
+  - {fileID: 2800000, guid: 2bc88ce7478d03540a5af6c09057c312, type: 3}
+  - {fileID: 2800000, guid: 6aac193886f0a06448e3fb448238e69b, type: 3}
+  - {fileID: 2800000, guid: 33500ba5579417943ace88c89891920a, type: 3}
+  - {fileID: 2800000, guid: 337ae5fc076277f4895fca7de6d228c3, type: 3}
   spriteArmas1:
   - {fileID: 4942803658038726614, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: -9004990608046106943, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
