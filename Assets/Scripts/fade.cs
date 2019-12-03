@@ -12,6 +12,11 @@ public class fade : MonoBehaviour
 
     public bool emTransicao;
 
+    private void Start()
+    {
+        StartCoroutine("fadeO");
+    }
+
     public void fadeIn()
     {
         if (!emTransicao)
