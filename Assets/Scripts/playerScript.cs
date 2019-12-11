@@ -37,7 +37,9 @@ public class playerScript : MonoBehaviour
     //Sistema de armas
     public      int         idArma;
     public      int         idArmaAtual;
-    public      GameObject[]  armas;
+    public      GameObject[]  armas, arcos, flechaArco, staffs;
+    public      GameObject  flechaPrefab, magiaPrefab;
+    public      Transform   spawnFlecha, spawnMagia;
     
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,16 @@ public class playerScript : MonoBehaviour
 
         vidaAtual = vidaMaxima;
 
-        foreach (GameObject o in armas) {
+        foreach (GameObject o in armas)
+        {
+            o.SetActive(false);
+        }
+        foreach (GameObject o in arcos)
+        {
+            o.SetActive(false);
+        }
+        foreach (GameObject o in staffs)
+        {
             o.SetActive(false);
         }
 
@@ -140,13 +151,14 @@ public class playerScript : MonoBehaviour
         playerAnimator.SetBool("grounded", Grounded);
         playerAnimator.SetInteger("idAnimation", idAnimation);
         playerAnimator.SetFloat("speedY", playerRb.velocity.y);
+        playerAnimator.SetFloat("idClasseArma", _GameCtrl.idClasseArma[_GameCtrl.idArmaAtual]);
     }
 
     private void LateUpdate()
     {
-        if(idArma != idArmaAtual)
+        if(_GameCtrl.idArma != _GameCtrl.idArmaAtual)
         {
-            trocarArma(idArma);            
+            trocarArma(_GameCtrl.idArma);            
         }
     }
 
@@ -168,6 +180,36 @@ public class playerScript : MonoBehaviour
             case 0:
                 attacking = false;
                 armas[2].SetActive(false);
+                break;
+
+            case 1:
+                attacking = true;
+                break;
+        }
+    }
+
+    public void attackFlecha(int atk)
+    {
+        switch (atk)
+        {
+            case 0:
+                attacking = false;
+                arcos[2].SetActive(false);
+                break;
+
+            case 1:
+                attacking = true;
+                break;
+        }
+    }
+
+    public void attackStaff(int atk)
+    {
+        switch (atk)
+        {
+            case 0:
+                attacking = false;
+                staffs[3].SetActive(false);
                 break;
 
             case 1:
@@ -204,6 +246,26 @@ public class playerScript : MonoBehaviour
         armas[id].SetActive(true);
     }
 
+    void controleArco(int id)
+    {
+        foreach (GameObject o in arcos)
+        {
+            o.SetActive(false);
+        }
+
+        arcos[id].SetActive(true);
+    }
+
+    void controleStaff(int id)
+    {
+        foreach (GameObject o in staffs)
+        {
+            o.SetActive(false);
+        }
+
+        staffs[id].SetActive(true);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch(collision.gameObject.tag)
@@ -223,30 +285,65 @@ public class playerScript : MonoBehaviour
         {
             o.GetComponent<SpriteRenderer>().material = novoMaterial;
         }
+        foreach (GameObject o in arcos)
+        {
+            o.GetComponent<SpriteRenderer>().material = novoMaterial;
+        }
+        foreach (GameObject o in flechaArco)
+        {
+            o.GetComponent<SpriteRenderer>().material = novoMaterial;
+        }
+        foreach (GameObject o in staffs)
+        {
+            o.GetComponent<SpriteRenderer>().material = novoMaterial;
+        }
     }
 
     public void trocarArma(int id)
     {
-        idArma = id;
+        _GameCtrl.idArma = id;
 
-        armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
-        armaInfo tempArmaInfo = armas[0].GetComponent<armaInfo>();
-        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
-        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
-        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
-        
-        armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
-        tempArmaInfo = armas[1].GetComponent<armaInfo>();
-        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
-        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
-        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+        switch (_GameCtrl.idClasseArma[idArma])
+        {
 
-        armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
-        tempArmaInfo = armas[2].GetComponent<armaInfo>();
-        tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
-        tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
-        tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+            case 0: //espadas machados e martelos
 
-        idArmaAtual = idArma;
+                armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+                armaInfo tempArmaInfo = armas[0].GetComponent<armaInfo>();
+                tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+                tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+                tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+
+                armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+                tempArmaInfo = armas[1].GetComponent<armaInfo>();
+                tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+                tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+                tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+
+                armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+                tempArmaInfo = armas[2].GetComponent<armaInfo>();
+                tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
+                tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
+                tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
+                break;
+
+            case 1: //arcos
+
+                arcos[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+                arcos[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+                arcos[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+                break;
+
+            case 2: //staffs
+
+                staffs[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+                staffs[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+                staffs[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+                staffs[3].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas4[idArma];
+                break;
+        }
+
+        _GameCtrl.idArmaAtual = _GameCtrl.idArma;
+
     }
 }

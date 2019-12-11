@@ -15,16 +15,21 @@ public class _GameCtrl : MonoBehaviour
     public int idPersonagem;
     public int idPersonagemAtual;
     public int vidaMaxima;
-    public int idArma;
+    public int idArma, idArmaAtual;
     
     [Header("Banco de Personagens")]
     public string[] nomePersonagem;
     public Texture[] spriteSheetName;
 
     [Header("Banco de dados armas")]
+    public string[] nomeArma;
+    public int[] custoArma;
+    public int[] idClasseArma; // 0=machado, martelo espadas - 1=arcos, 2=staffs
+
     public Sprite[] spriteArmas1;
     public Sprite[] spriteArmas2;
     public Sprite[] spriteArmas3;
+    public Sprite[] spriteArmas4;
     public int[] danoMinArma;
     public int[] danoMaxArma;
     public int[] tipoDanoArma;
