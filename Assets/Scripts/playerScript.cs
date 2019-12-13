@@ -316,24 +316,24 @@ public class playerScript : MonoBehaviour
     {
         _GameCtrl.idArma = id;
 
-        switch (_GameCtrl.idClasseArma[idArma])
+        switch (_GameCtrl.idClasseArma[id])
         {
 
             case 0: //espadas machados e martelos
 
-                armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
+                armas[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[id];
                 armaInfo tempArmaInfo = armas[0].GetComponent<armaInfo>();
                 tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
                 tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
                 tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
 
-                armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
+                armas[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[id];
                 tempArmaInfo = armas[1].GetComponent<armaInfo>();
                 tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
                 tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
                 tempArmaInfo.tipoDano = _GameCtrl.tipoDanoArma[idArma];
 
-                armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+                armas[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[id];
                 tempArmaInfo = armas[2].GetComponent<armaInfo>();
                 tempArmaInfo.danoMin = _GameCtrl.danoMinArma[idArma];
                 tempArmaInfo.danoMax = _GameCtrl.danoMaxArma[idArma];
@@ -342,17 +342,17 @@ public class playerScript : MonoBehaviour
 
             case 1: //arcos
 
-                arcos[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
-                arcos[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
-                arcos[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
+                arcos[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[id];
+                arcos[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[id];
+                arcos[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[id];
                 break;
 
             case 2: //staffs
 
-                staffs[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[idArma];
-                staffs[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[idArma];
-                staffs[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[idArma];
-                staffs[3].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas4[idArma];
+                staffs[0].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas1[id];
+                staffs[1].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas2[id];
+                staffs[2].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas3[id];
+                staffs[3].GetComponent<SpriteRenderer>().sprite = _GameCtrl.spriteArmas4[id];
                 break;
         }
 

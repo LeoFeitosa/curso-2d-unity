@@ -20,6 +20,8 @@ public class _GameCtrl : MonoBehaviour
     [Header("Banco de Personagens")]
     public string[] nomePersonagem;
     public Texture[] spriteSheetName;
+    public int[] idClasse;
+    public int[] idArmaInicial;
 
     [Header("Banco de dados armas")]
     public string[] nomeArma;
@@ -46,5 +48,13 @@ public class _GameCtrl : MonoBehaviour
     {
         string s = gold.ToString("N0");
         boltTxt.text = s.Replace(",", ".");
+    }
+
+    public void validarArma()
+    {
+        if(idClasseArma[idArma] != idClasse[idPersonagem])
+        {
+            idArma = idArmaInicial[idPersonagem];
+        }
     }
 }

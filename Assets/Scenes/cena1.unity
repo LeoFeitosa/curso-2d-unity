@@ -2168,7 +2168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23, y: 1.5999998, z: -10}
+  m_LocalPosition: {x: -4.72991, y: 1.5999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7801,10 +7801,10 @@ MonoBehaviour:
   fxMorte: {fileID: 7882091023603995806, guid: a6c6dd36682a18b4e853b5e13e0f83ff, type: 3}
   gold: 0
   boltTxt: {fileID: 1776735070}
-  idPersonagem: 0
+  idPersonagem: 9
   idPersonagemAtual: 0
   vidaMaxima: 10
-  idArma: 0
+  idArma: 3
   idArmaAtual: 0
   nomePersonagem:
   - 
@@ -7828,25 +7828,31 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6aac193886f0a06448e3fb448238e69b, type: 3}
   - {fileID: 2800000, guid: 33500ba5579417943ace88c89891920a, type: 3}
   - {fileID: 2800000, guid: 337ae5fc076277f4895fca7de6d228c3, type: 3}
+  idClasse: 00000000000000000000000000000000010000000100000000000000000000000000000002000000
+  idArmaInicial: 00000000000000000000000000000000010000000100000000000000000000000000000002000000
   nomeArma: []
   custoArma: 
-  idClasseArma: 000000000100000002000000
+  idClasseArma: 00000000010000000200000002000000
   spriteArmas1:
   - {fileID: 4942803658038726614, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: 3570851709020870840, guid: 969ea4608d06f9f428c9c97a573adb32, type: 3}
   - {fileID: -7440546752563858597, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
+  - {fileID: 175385020425189468, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
   spriteArmas2:
   - {fileID: 6123003023063038561, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: 3144686729720783181, guid: 969ea4608d06f9f428c9c97a573adb32, type: 3}
   - {fileID: -7461390936705696379, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
+  - {fileID: 2850489348650054323, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
   spriteArmas3:
   - {fileID: 4978276593797209138, guid: c9096b576416ec4478250b8e66e3ec82, type: 3}
   - {fileID: -4983529612927322312, guid: 969ea4608d06f9f428c9c97a573adb32, type: 3}
   - {fileID: 3132286685215639721, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
+  - {fileID: -3220147537453589037, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
   spriteArmas4:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: -1000418288336766727, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
+  - {fileID: 5451518032225949699, guid: 60b1f41ee34aa2d41a19b118ac63c78b, type: 3}
   danoMinArma: 010000000200000003000000
   danoMaxArma: 020000000400000008000000
   tipoDanoArma: 000000000000000000000000
