@@ -200,6 +200,13 @@ public class playerScript : MonoBehaviour
             case 1:
                 attacking = true;
                 break;
+
+            case 2:
+                GameObject tempPrefab = Instantiate(flechaPrefab, spawnFlecha.position, spawnFlecha.localRotation);
+                tempPrefab.transform.localScale = new Vector3(tempPrefab.transform.localScale.x * dir.x, tempPrefab.transform.localScale.y, tempPrefab.transform.localScale.z);
+                tempPrefab.GetComponent<Rigidbody2D>().velocity = new Vector2(5 * dir.x, 0);
+                Destroy(tempPrefab, 2);
+                break;
         }
     }
 
@@ -214,6 +221,12 @@ public class playerScript : MonoBehaviour
 
             case 1:
                 attacking = true;
+                break;
+
+            case 2:
+                GameObject tempPrefab = Instantiate(magiaPrefab, spawnMagia.position, spawnMagia.localRotation);
+                tempPrefab.GetComponent<Rigidbody2D>().velocity = new Vector2(5 * dir.x, 0);
+                Destroy(tempPrefab, 1);
                 break;
         }
     }

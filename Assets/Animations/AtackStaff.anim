@@ -22,20 +22,20 @@ AnimationClip:
     - time: 0
       value: {fileID: -15094395349688839, guid: 13415d01803c78b40b7d702c4a1bf0a7,
         type: 3}
-    - time: 0.125
+    - time: 0.16666667
       value: {fileID: -210913481236543123, guid: 13415d01803c78b40b7d702c4a1bf0a7,
         type: 3}
-    - time: 0.25
+    - time: 0.33333334
       value: {fileID: -464842401830776344, guid: 13415d01803c78b40b7d702c4a1bf0a7,
         type: 3}
-    - time: 0.5
+    - time: 0.6666667
       value: {fileID: -15094395349688839, guid: 13415d01803c78b40b7d702c4a1bf0a7,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.625
+    m_StopTime: 0.8333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -93,28 +93,35 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.125
+  - time: 0.16666667
     functionName: controleStaff
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.25
+  - time: 0.33333334
     functionName: controleStaff
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.375
+  - time: 0.33333334
+    functionName: attackStaff
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.5
     functionName: controleStaff
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.5
+  - time: 0.6666667
     functionName: attackStaff
     data: 
     objectReferenceParameter: {fileID: 0}

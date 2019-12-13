@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3579102232222633570}
   - component: {fileID: 3579102232222633571}
   - component: {fileID: 3579102232222633572}
+  - component: {fileID: -2267672926402277344}
   m_Layer: 0
   m_Name: prefabFlecha
   m_TagString: Arma
@@ -144,3 +145,18 @@ MonoBehaviour:
   danoMax: 1
   danoMin: 2
   tipoDano: 0
+--- !u!114 &-2267672926402277344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579102232222633375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c014c4495dffe4841849ed4a95ad2058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destruirLayer:
+    serializedVersion: 2
+    m_Bits: 1024
