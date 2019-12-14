@@ -41,6 +41,8 @@ public class _GameCtrl : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        idPersonagem = PlayerPrefs.GetInt("idPersonagem");
     }
 
     // Update is called once per frame
