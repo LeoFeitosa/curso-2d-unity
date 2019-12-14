@@ -127,6 +127,21 @@ public class playerScript : MonoBehaviour
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !attacking)
+        {
+            trocarArma(0); // usar espada
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !attacking)
+        {
+            trocarArma(4); // usar machado
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !attacking)
+        {
+            trocarArma(5); // usar maça
+        }
+
         if (attacking && Grounded)
         {
             h = 0;

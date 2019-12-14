@@ -13,7 +13,7 @@ public class mudarCena : MonoBehaviour
     void Start()
     {
         fade = FindObjectOfType(typeof(fade)) as fade;
-        _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl:
+        _GameCtrl = FindObjectOfType(typeof(_GameCtrl)) as _GameCtrl;
     }
 
     // Update is called once per frame
