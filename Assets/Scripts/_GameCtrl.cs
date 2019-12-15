@@ -36,6 +36,8 @@ public class _GameCtrl : MonoBehaviour
     public int[] danoMaxArma;
     public int[] tipoDanoArma;
 
+    [Header("Paineis")]
+    public GameObject painelPause;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,11 @@ public class _GameCtrl : MonoBehaviour
     {
         string s = gold.ToString("N0");
         boltTxt.text = s.Replace(",", ".");
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            pauseGame();
+        }
     }
 
     public void validarArma()
@@ -58,5 +65,24 @@ public class _GameCtrl : MonoBehaviour
         {
             idArma = idArmaInicial[idPersonagem];
         }
+    }
+
+    void pauseGame()
+    {
+        bool pauseState = painelPause.activeSelf;
+        pauseState = !pauseState;
+        painelPause.SetActive(pauseState);
+
+        switch(pauseState)
+        {
+            case true:
+                Time.timeScale = 0;
+                break;
+
+            case false:
+                Time.timeScale = 1;
+                break;
+        }
+
     }
 }
