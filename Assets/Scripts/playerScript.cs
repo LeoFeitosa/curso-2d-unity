@@ -74,6 +74,11 @@ public class playerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_GameCtrl.currentState != GameState.GAMEPLAY)
+        {
+            return;
+        }
+
         Grounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f, whatIsGround);
 
         playerRb.velocity = new Vector2(h * speed, playerRb.velocity.y);
@@ -84,6 +89,11 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GameCtrl.currentState != GameState.GAMEPLAY)
+        {
+            return;
+        }
+
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
 

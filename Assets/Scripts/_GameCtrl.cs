@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum GameState
+{
+    PAUSE,
+    GAMEPLAY
+}
+
 public class _GameCtrl : MonoBehaviour
 {
+    public GameState currentState;
+
     public string[] tiposDano;
     public GameObject[] fxDano;
     public GameObject fxMorte;
@@ -77,12 +85,19 @@ public class _GameCtrl : MonoBehaviour
         {
             case true:
                 Time.timeScale = 0;
+                changeState(GameState.PAUSE);
                 break;
 
             case false:
                 Time.timeScale = 1;
+                changeState(GameState.GAMEPLAY);
                 break;
         }
 
+    }
+
+    public void changeState(GameState newState)
+    {
+        currentState = newState;
     }
 }
