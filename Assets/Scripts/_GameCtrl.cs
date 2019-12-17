@@ -6,7 +6,8 @@ using TMPro;
 public enum GameState
 {
     PAUSE,
-    GAMEPLAY
+    GAMEPLAY,
+    ITENS
 }
 
 public class _GameCtrl : MonoBehaviour
@@ -46,11 +47,15 @@ public class _GameCtrl : MonoBehaviour
 
     [Header("Paineis")]
     public GameObject painelPause;
+    public GameObject painelItens;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        painelPause.SetActive(false);
+        painelItens.SetActive(false);
 
         idPersonagem = PlayerPrefs.GetInt("idPersonagem");
     }
@@ -61,7 +66,7 @@ public class _GameCtrl : MonoBehaviour
         string s = gold.ToString("N0");
         boltTxt.text = s.Replace(",", ".");
 
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && currentState != GameState.ITENS)
         {
             pauseGame();
         }
@@ -99,5 +104,14 @@ public class _GameCtrl : MonoBehaviour
     public void changeState(GameState newState)
     {
         currentState = newState;
+    }
+
+    public void BtnItensDown()
+    {
+        print("btnItensDown");
+
+        painelPause.SetActive(false);
+        painelItens.SetActive(true);
+        changeState(GameState.ITENS);
     }
 }
