@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public enum GameState
 {
     PAUSE,
     GAMEPLAY,
-    ITENS
+    ITENS,
+    OPTIONS
 }
 
 public class _GameCtrl : MonoBehaviour
 {
     public GameState currentState;
+    public playerScript playerScript;
 
     public string[] tiposDano;
     public GameObject[] fxDano;
@@ -49,10 +52,16 @@ public class _GameCtrl : MonoBehaviour
     public GameObject painelPause;
     public GameObject painelItens;
 
+    [Header("Primeiro elemento de cada Painel")]
+    public Button firstPainelPause;
+    public Button firstPainelItens;
+
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        playerScript = FindObjectOfType(typeof(playerScript)) as playerScript;
 
         painelPause.SetActive(false);
         painelItens.SetActive(false);
@@ -63,6 +72,8 @@ public class _GameCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerScript == null) { playerScript = FindObjectOfType(typeof(playerScript)) as playerScript; }
+
         string s = gold.ToString("N0");
         boltTxt.text = s.Replace(",", ".");
 
@@ -91,6 +102,7 @@ public class _GameCtrl : MonoBehaviour
             case true:
                 Time.timeScale = 0;
                 changeState(GameState.PAUSE);
+                firstPainelPause.Select();
                 break;
 
             case false:
@@ -108,10 +120,20 @@ public class _GameCtrl : MonoBehaviour
 
     public void BtnItensDown()
     {
-        print("btnItensDown");
+        print("Itens");
 
         painelPause.SetActive(false);
         painelItens.SetActive(true);
         changeState(GameState.ITENS);
+    }
+
+    public void BtnOptionsDown()
+    {
+        print("Options");
+    }
+
+    public void BtnStatusDown()
+    {
+        print("Status");
     }
 }

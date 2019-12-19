@@ -42,7 +42,7 @@ public class reSkin : MonoBehaviour
         {
             loadSpriteSheet();
         }
-        print(sRender.sprite);
+        //print(sRender.sprite);
 
         _GameCtrl.validarArma();
 
